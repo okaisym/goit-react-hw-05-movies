@@ -1,8 +1,8 @@
 import { movieDetails } from "api";
 import { useState, useEffect, useRef } from "react";
 import { useParams, Outlet, useLocation, NavLink } from 'react-router-dom';
-import { Loader } from '../components/Loader/Loader';
-import MovieDetails from "../components/MovieData/MovieDetails";
+import { Loader } from '../../components/Loader/Loader';
+import MovieDetails from "../../components/MovieData/MovieDetails";
 
 export default function MovieDetailsPage() {
     const {movieId} = useParams();
@@ -52,12 +52,7 @@ export default function MovieDetailsPage() {
         <div>
       {isLoading && <Loader />}
       {isError && <div>Error fetching movie details</div>}
-      <NavLink to={linkRef.current}>
-        {/* <b>
-          <IoMdArrowRoundBack size={20} />
-          Go back
-        </b> */}
-      </NavLink>
+      <NavLink to={linkRef.current}/>
       {details && <MovieDetails data={details} />}
       <Outlet />
     </div>

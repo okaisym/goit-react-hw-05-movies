@@ -2,6 +2,7 @@ import { Loader } from "react-loaders";
 import { useState, useEffect } from 'react';
 import { getCast } from 'api';
 import { useParams } from 'react-router-dom';
+import {Item, ListCast, CastContainer, CastImg} from './Cast.styled'
 
 export default function Cast() {
     const { movieId } = useParams();
@@ -40,15 +41,17 @@ export default function Cast() {
             {isLoading && <Loader />}
             {isError && <div>Error catching cast</div>}
             {castInfo && castInfo.length > 0 ? (
-                <ul>
+                <ListCast>
                     {castInfo.map(item => (
-                        <div key={item.id}>
-                            <img src={item.img} alt={item.name} />
-                            <h2>Name: {item.name}</h2>
-                            <h3>Character: {item.char}</h3>
-                        </div>
+                        <CastContainer key={item.id}>
+                            <CastImg src={item.img} alt={item.name} width='200'/>
+                            <div>
+                            <p><Item>Name:</Item> {item.name}</p>
+                            <p><Item>Character:</Item> {item.char}</p>
+                            </div>
+                        </CastContainer>
                     ))}
-                </ul>
+                </ListCast>
             ) : (
                 <p>No cast info found</p>
             )}

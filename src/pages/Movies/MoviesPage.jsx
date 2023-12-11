@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { Loader } from '../components/Loader/Loader';
+import { Loader } from '../../components/Loader/Loader';
 import { searchMovies } from 'api';
-import MoviesList from '../components/MovieData/MoviesList';
+import MoviesList from '../../components/MovieData/MoviesList';
+import {BtnSubmit, FormContainter, Input, Form} from './MoviesPage.styled'
 
 export default function MoviesPage() {
   const [searchResults, setSearchResults] = useState([]);
@@ -39,12 +40,12 @@ export default function MoviesPage() {
 
   return (
     <>
-      <div>
-        <form onSubmit={handleSubmit}>
-          <input type="text" autoComplete="off" autoFocus placeholder="Search movies" name="search" />
-          <button type="submit">Submit</button>
-        </form>
-      </div>
+      <FormContainter>
+        <Form onSubmit={handleSubmit}>
+          <Input type="text" autoComplete="off" autoFocus placeholder="Search movies" name="search" />
+          <BtnSubmit type="submit">Submit</BtnSubmit>
+        </Form>
+      </FormContainter>
 
       {isLoading && <Loader />}
 

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import {getReviews} from 'api';
 import { Loader } from "../Loader/Loader";
 import { useParams } from "react-router-dom";
+import { ContainerReview, Item, ReviewList } from './Review.styled'
 
 export default function Reviews() {
     const {movieId} = useParams();
@@ -33,22 +34,22 @@ export default function Reviews() {
         }
     }, [movieId]);
     return (
-        <div>
+        <ContainerReview>
             {isLoading && <Loader/>}
             {isError && <div>Error fetching reviews</div>}
 
             {reviews && reviews.length > 0 ? (
-                <ul>
+                <ReviewList>
                     {reviews.map(item => (
                         <li key={item.id}>
-                            <p>Name: {item.name}</p>
-                            <p>Review: {item.review}</p>
+                            <p><Item>Name: </Item>{item.name}</p>
+                            <p><Item>Review: </Item>{item.review}</p>
                         </li>
                     ))}
-                </ul>
+                </ReviewList>
             ) : (
                 <p>No reviews found</p>
             )}
-        </div>
+        </ContainerReview>
     );
 }

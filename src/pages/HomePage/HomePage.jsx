@@ -1,7 +1,7 @@
 import { fetchTrendingMovies } from 'api';
 import { useState, useEffect } from 'react';
-import { Loader } from '../components/Loader/Loader';
-import MoviesList from '../components/MovieData/MoviesList';
+import { Loader } from '../../components/Loader/Loader';
+import MoviesList from '../../components/MovieData/MoviesList';
 import { TrendingTitle } from './HomePage.styled';
 
 
@@ -37,7 +37,7 @@ export default function HomePage() {
   return (
     <div>
       {isError && <div>Error fetching movies. Please try again.</div>}
-      {movies.length > 0 && <TrendingTitle>Trending Movies</TrendingTitle>}
+      {movies.length > 0 && <TrendingTitle>Trending Movies 🤩</TrendingTitle>}
       {movies.length > 0 && <MoviesList movies={movies} />}
       {isLoading && <Loader />}
     </div>
