@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { getCast } from 'api';
 import { useParams } from 'react-router-dom';
 import {Item, ListCast, CastContainer, CastImg} from './Cast.styled'
+import { getPoster } from "api";
 
 export default function Cast() {
     const { movieId } = useParams();
@@ -18,8 +19,7 @@ export default function Cast() {
                 const castResponse = response.cast;
                 const details = castResponse.map(item => ({
                     id: item.id,
-                    img: item.profile_path ? `https://image.tmdb.org/t/p/w300${item.profile_path}` :
-                        'https://placehold.it/300x450?text=Image_not_found',
+                    img:  getPoster(item.profile_path),
                     name: item.name,
                     char: item.character,
                 }));

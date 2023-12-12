@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { NavLink } from 'react-router-dom';
 
 export const BtnSubmit = styled.button`
 color: #7cb9e8;
@@ -40,3 +41,10 @@ export const Form = styled.form`
 display: flex;
 justify-content: center;
 align-items: center;`
+
+export const GoBackNavLink = styled(NavLink)`
+text-decoration: none;
+color: #7cb9e8;
+margin-left: 50px;
+font-weight: 600;
+font-size: 20px;`

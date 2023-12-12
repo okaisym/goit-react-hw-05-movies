@@ -12,6 +12,7 @@ export const Header = styled.header`
   background-color: #7cb9e8;
   padding: 20px 0 20px 50px;
   box-shadow: 0 4px 8px rgba(0, 0, 0.2, 0.1);
+  margin-bottom: 35px;
 `;
 export const StyledNavLink = styled(NavLink)`
   color: white;
